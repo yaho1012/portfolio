@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio | 이종진</title>
+  <style>
+    /* ───────────────────────────────────────────────────────────────────── */
+    /* 기본 리셋 */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      color: #333;
+      line-height: 1.6;
+      background-color: #f5f7fa;
+    }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    /* ───────────────────────────────────────────────────────────────────── */
+    /* 네비게이션 */
+    header {
+      position: fixed; top: 0; left: 0; width: 100%;
+      background: #fff; border-bottom: 1px solid #e1e4e8;
+      z-index: 1000;
+    }
+    nav {
+      max-width: 1000px; margin: auto; display: flex;
+      justify-content: space-between; align-items: center;
+      padding: 1rem;
+    }
+    nav .logo { font-size: 1.4rem; font-weight: bold; color: #007acc;}
+    nav ul { display: flex; gap: 1rem; }
+    nav ul li a {
+      padding: 0.5rem; transition: color 0.3s;
+    }
+    nav ul li a:hover { color: #007acc; }
+
+    /* ───────────────────────────────────────────────────────────────────── */
+    /* 히어로 섹션 */
+    .hero {
+      background: linear-gradient(135deg, #007acc 0%, #00b4ff 100%);
+      color: #fff;
+      height: 80vh;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      text-align: center;
+      padding: 0 1rem;
+    }
+    .hero h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+    .hero p { font-size: 1.2rem; }
+
+    /* ───────────────────────────────────────────────────────────────────── */
+    /* 섹션 공통 */
+    section {
+      max-width: 1000px; margin: auto;
+      padding: 4rem 1rem;
+    }
+    section h2 {
+      font-size: 2rem; border-bottom: 2px solid #007acc;
+      display: inline-block; margin-bottom: 1.5rem;
+      color: #007acc;
+    }
+
+    /* ───────────────────────────────────────────────────────────────────── */
+    /* About */
+    #about .info-list {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+      gap: 1rem;
+    }
+    #about .info-list li {
+      background: #fff; padding: 1rem; border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    #about .info-list li span { font-weight: bold; color: #555; }
+
+    /* ───────────────────────────────────────────────────────────────────── */
+    /* 타임라인 (Education / Experience) */
+    .timeline {
+      position: relative; padding-left: 40px;
+    }
+    .timeline::before {
+      content: ''; position: absolute; left: 20px; top: 0;
+      width: 2px; height: 100%; background: #ddd;
+    }
+    .timeline-item {
+      position: relative; margin-bottom: 2rem;
+      padding-left: 20px;
+    }
+    .timeline-item::before {
+      content: ''; position: absolute; left: -2px; top: 4px;
+      width: 10px; height: 10px;
+      background: #007acc; border-radius: 50%;
+    }
+    .timeline-item h3 { margin-bottom: 0.3rem; color: #007acc; }
+    .timeline-item .period {
+      font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;
+    }
+
+    /* ───────────────────────────────────────────────────────────────────── */
+    /* Skills */
+    #skills .skill-list {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
+      gap: 1rem;
+    }
+    #skills .skill {
+      background: #fff; padding: 1rem; border-radius: 6px;
+      text-align: center; box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    #skills .skill span {
+      display: block; margin-top: 0.5rem; font-weight: bold;
+    }
+
+    /* ───────────────────────────────────────────────────────────────────── */
+    /* Certifications */
+    #certs ul li {
+      margin-bottom: 0.8rem;
+    }
+    #certs ul li span { font-weight: bold; color: #007acc; }
+
+    /* ───────────────────────────────────────────────────────────────────── */
+    /* Contact */
+    #contact .contact-list li {
+      margin-bottom: 0.5rem;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    #contact .contact-list li span { font-weight: bold; color: #007acc; }
+
+    /* ───────────────────────────────────────────────────────────────────── */
+    /* 푸터 */
+    footer {
+      text-align: center; padding: 2rem 1rem;
+      background: #fff; border-top: 1px solid #e1e4e8;
+      font-size: 0.9rem; color: #777;
+    }
+
+    /* ───────────────────────────────────────────────────────────────────── */
+    /* 반응형 */
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2.2rem; }
+      .hero p { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- 네비게이션 -->
+  <header>
+    <nav>
+      <div class="logo">이종진</div>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#certs">Certifications</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- 히어로 섹션 -->
+  <section class="hero" id="home">
+    <h1>이종진</h1>
+    <p>Full-Stack & Mobile Developer</p>
+  </section>
+
+  <!-- About Me -->
+  <section id="about">
+    <h2>About Me</h2>
+    <ul class="info-list">
+      <li><span>이름</span> 이종진 (李鍾眞)</li>
+      <li><span>생년월일</span> 1980.10.12</li>
+      <li><span>주소</span> 경기도 수원시 영통구 영통동 신나무실5단지 544동 902호</li>
+      <li><span>이메일</span> yaho1213@nate.com</li>
+      <li><span>전화</span> 010-4418-3121</li>
+    </ul>
+  </section>
+
+  <!-- Education Timeline -->
+  <section id="education">
+    <h2>Education</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>진주동명고등학교</h3>
+        <div class="period">1997.03 – 2000.02</div>
+      </div>
+      <div class="timeline-item">
+        <h3>연암공업대학, 컴퓨터정보기술학과</h3>
+        <div class="period">2000.03 – 2002.02 | GPA 3.79/4.5</div>
+      </div>
+      <div class="timeline-item">
+        <h3>한양사이버대학교, 컴퓨터공학과</h3>
+        <div class="period">2006.08 – 2008.08 | GPA 4.13/4.5</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Timeline -->
+  <section id="experience">
+    <h2>Experience</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>㈜넥스첼</h3>
+        <div class="period">2004.12 – 2006.12</div>
+        <p>한전 그룹웨어 유지보수 (ASP, PHP, JSP, MySQL, Linux, Oracle)</p>
+      </div>
+      <div class="timeline-item">
+        <h3>한전KDN</h3>
+        <div class="period">2007.01 – 2009.11</div>
+        <p>포탈시스템 개발 및 최적화 (PHP, JSP, Linux, Oracle)</p>
+      </div>
+      <div class="timeline-item">
+        <h3>㈜에듀박스 · ㈜휴베이션</h3>
+        <div class="period">2009.11 – 2011.12</div>
+        <p>LMS 개발·유지보수 (Spring, Java, Tomcat, MySQL)</p>
+      </div>
+      <div class="timeline-item">
+        <h3>㈜코드앤</h3>
+        <div class="period">2011.12 – 2015.06</div>
+        <p>Mystudy LMS, SNS App, Smart TV App 등 총괄 개발 (Java, PHP, MongoDB)</p>
+      </div>
+      <div class="timeline-item">
+        <h3>비상교육</h3>
+        <div class="period">2015.06 – 2019.01</div>
+        <p>LMS·CMS·앱·런처 통합 개발 및 유지보수 (Node.js, React, FCM)</p>
+      </div>
+      <div class="timeline-item">
+        <h3>플랫폼베이스 · 아이에스랩 · 개발하는사람들</h3>
+        <div class="period">2019.01 – 2024.11</div>
+        <p>IoT 미들웨어, 모바일 앱, Flutter 기반 서비스 개발·고도화</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skill-list">
+      <div class="skill">
+        <strong>Backend</strong>
+        <span>Java · Spring · Node.js · PHP</span>
+      </div>
+      <div class="skill">
+        <strong>Frontend</strong>
+        <span>HTML5 · CSS3 · React · Vue.js</span>
+      </div>
+      <div class="skill">
+        <strong>Mobile</strong>
+        <span>Android · iOS · Flutter · React Native</span>
+      </div>
+      <div class="skill">
+        <strong>Database</strong>
+        <span>MySQL · Oracle · MongoDB</span>
+      </div>
+      <div class="skill">
+        <strong>DevOps</strong>
+        <span>Linux · Docker · CI/CD</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications -->
+  <section id="certs">
+    <h2>Certifications</h2>
+    <ul>
+      <li><span>정보처리산업기사</span> 한국산업인력공단 (2003.06.19)</li>
+      <li><span>정보처리기사</span> 한국산업인력공단 (2006.12.20)</li>
+      <li><span>전자상거래관리사 2급</span> 대한상공회의소 (2003.11.18)</li>
+      <li><span>SCJP</span> SUN (2009.06.21)</li>
+    </ul>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <ul class="contact-list">
+      <li><span>Email:</span> yaho1213@nate.com</li>
+      <li><span>Phone:</span> 010-4418-3121</li>
+      <li><span>Address:</span> 경기도 수원시 영통구 영통동 신나무실5단지 544동 902호</li>
+    </ul>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 이종진 All rights reserved.
+  </footer>
+</body>
+</html>
